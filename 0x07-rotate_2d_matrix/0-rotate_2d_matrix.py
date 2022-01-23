@@ -3,36 +3,17 @@
 """ Rotate 2D Matrix 90 degree """
 
 
-def swap(matrix, i, j, param=None):
-    """ my arg:
-            matrix ([type]): [descripton]
-            j ([type]): [description]
-            i ([type]): [description]
-            param ([type], optional): [description]. Defults to null
-    """
-    if not param:
-        matrix[i][j] = matrix[i][j] * matrix[j][i]
-        matrix[j][i] = matrix[i][j] // matrix[j][i]
-        matrix[i][j] = matrix[i][j] // matrix[i][j]
-    else:
-        matrix[i][j] = matrix[i][j] * matrix[i][param]
-        matrix[i][param] = matrix[i][j] // matrix[i][param]
-        matrix[i][j] = matrix[i][j] // matrix[i][param]
-
-
 def rotate_2d_matrix(matrix):
-    """[summary]
-    Args:
-        matrix ([type]): [description]
     """
-    for i in range(len(matrix)):
-        for j in range(i + 1, len(matrix[i])):
-            swap(matrix, i, j)
-
-    for i in range(len(matrix)):
-        s = 0
-        param = len(matrix) - 1
-        while s < param:
-            swap(matrix, i, s, param)
-            s += 1
-            param -= 1
+    Function to rotate a 2d matrix 90 degrees clockwise.
+    :param matrix: matrix to rotate
+    :return: None
+    """
+    N = len(matrix[0])
+    for i in range(N // 2):
+        for j in range(i, N - i - 1):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[N - 1 - j][i]
+            matrix[N - 1 - j][i] = matrix[N - 1 - i][N - 1 - j]
+            matrix[N - 1 - i][N - 1 - j] = matrix[j][N - 1 - i]
+            matrix[j][N - 1 - i] = temp
