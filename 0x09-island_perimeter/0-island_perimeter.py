@@ -11,6 +11,7 @@ The grid is completely surrounded by water
 There is only one island (or nothing).
 The island doesn’t have “lakes” (water inside that isn’t connected to the water surrounding the island)."""
 
+
 def island_perimeter(grid):
     """  returns the perimeter of the island described in grid """
 
@@ -23,7 +24,7 @@ def island_perimeter(grid):
                 count += row[i] != row[i-1]
         return count
 
-          tgrid = [[] for _ in range(len(grid[0]))]
+    tgrid = [[] for _ in range(len(grid[0]))]
     for row in grid:
         for i, item in enumerate(row):
             tgrid[i].append(item)
