@@ -24,3 +24,18 @@ def isWinner(x, nums):
                 return False
             i = i + 6
         return True
+
+    nums.sort()
+
+    def primes(nums):
+        """"""
+        primes = []
+        for n in nums:
+            if is_prime(n):
+                primes.append(n)
+
+        return primes
+
+    moves = primes(nums)
+
+    return "Ben"
